@@ -77,6 +77,19 @@
                                 </div>
                                 <input type="email" class="form-control" name="email" placeholder="email@example.com" value= "" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Your email like emai@example.com"> 
                             </div>
+                            <!-- Select the Country -->
+                            <div class="form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Country</span>
+                                </div>
+                                <select class="custom-select my-1 mr-sm-2" name="country" required>
+                                    <option value=""> Select a country</option>
+                                    <?php foreach ($countries as $country) {
+                                        echo "<option value='" . array_search($country, $countries, true) . "'> $country </option>";
+                                    }
+                                ?>
+                                </select>
+                            </div>
                             <!-- Select the subject -->
                             <div class="form-group">
                                 <div class="input-group-prepend">
@@ -122,5 +135,7 @@
         <script src="./libs/javascript_form/gen_validatorv4.js"></script>
         <!-- personnal javascript using libs -->
         <script src="./assets/js/counter.js"></script>
+        <!-- add countries list-->
+        <script src=".assets/php/countries.php"></script>
     </body>
 </html>
