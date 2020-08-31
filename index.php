@@ -56,8 +56,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">First & last name</span>
                                 </div>
-                                <input type="text" class="form-control" name="firstname" placeholder="Firstname" required value="<?php echo htmlspecialchars($_POST['firstname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your firstname: Dupont">
-                                <input type="text" class="form-control" name="lastname" placeholder="Lastname" required value="<?php echo htmlspecialchars($_POST['lastname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your lastname: Pierre">
+                                <input type="text" class="form-control" name="firstname" placeholder="Firstname" required value="<?php echo htmlspecialchars($_POST['firstname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your firstname: Pierre">
+                                <input type="text" class="form-control" name="lastname" placeholder="Lastname" required value="<?php echo htmlspecialchars($_POST['lastname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your lastname: Durant">
                             </section>
                             <!-- Select the gender -->
                             <section class="form-group">
