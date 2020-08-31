@@ -1,32 +1,27 @@
 <?php
-	if (isset($_POST["firstname"], $_POST["lastname"], $_POST["gender"], $_POST["email"], $_POST["message"])) {
-/* 	print_r($_POST["submit"]);
-	if (isset($_POST["submit"])){ */
+	if (isset($_POST["submit"])){
 		$firstname = utf8_decode(filter_var($_POST['firstname'], FILTER_SANITIZE_STRING));
 		$lastname = utf8_decode(filter_var($_POST['lastname'], FILTER_SANITIZE_STRING));
 		$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-		$message = $_POST['message'];
-		$headers = "From: support@hackerspoulette.com"; 
-		$to = $email; 
-		$subject = $subject . ' problem from ' . $lastname; 
-		if ($gender == "male"){
+		$country = $_POST['country'];
+		$message = utf8_decode(filter_var($_POST['message'], FILTER_SANITIZE_STRING));
+		$headers = "From:support@hackerspoulette.com";
+		$subject = $_POST["subject"]; 
+		if ($gender === "male"){
 			$gender = "Mr ";
 		}else {
 			$gender = "Mrs";
 		}
-		$bodymsg = "Dear $genter $lastname $firstname, We received a $subject problem. We will contact you within 24 hours\n
+		$bodymsg = "Dear $gender $lastname $firstname from $country, We received a $subject problem. We will contact you within 24 hours\n
 		Here the issue you describe: \n
 		'$message'";
-		// Check if email has been entered and is valid
-		if (!$email) {
-			$errEmail = 'Please enter a valid email address';
-		}
-		if (mail ($mail, $subject, $body, $headers)) {
+		if (mail($email, $subject, $bodymsg, $headers)) {
 			$result='<div class="alert alert-success">Thank You! We will give you a feedback within 24 hours</div>';
 		} else {
 			$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
-			print_r($mail);
 		}
+	} else {
+		$result='<div class="alert alert-danger">Sorry, we have a technical issue. Please try again later</div>';
 	}
 ?>
 <!DOCTYPE html>

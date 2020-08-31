@@ -1,3 +1,6 @@
+<?php require('./assets/php/countries.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,7 +13,7 @@
               crossorigin="anonymous">
         <!-- assets -->
         <link rel="stylesheet"
-              href="./assets/css/counter.css">
+              href="./assets/css/styles.css">
         <title>Hackers-Poulette Support</title>
     </head>
     <body>
@@ -49,36 +52,36 @@
                         <p class="text-center w-responsive mx-auto mb-5">Any problems, let us know.</p>
                         <form action="./assets/php/form.php" method="post" accept-charset='UTF-8' id="myform">
                             <!-- Input name -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">First & last name</span>
                                 </div>
-                                <input type="text" class="form-control" name="firstname" placeholder="Firstname" required value="<?php echo htmlspecialchars($_POST['firstname']); ?>" pattern="[A-Za-z -]+" title="Your firstname">
-                                <input type="text" class="form-control" name="lastname" placeholder="Lastname" required value="<?php echo htmlspecialchars($_POST['lastname']); ?>" pattern="[A-Za-z -]+" title="Your lastname">
-                            </div>
+                                <input type="text" class="form-control" name="firstname" placeholder="Firstname" required value="<?php echo htmlspecialchars($_POST['firstname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your firstname: Dupont">
+                                <input type="text" class="form-control" name="lastname" placeholder="Lastname" required value="<?php echo htmlspecialchars($_POST['lastname']); ?>" pattern="[A-Z][A-Za-z' -]+" title="Your lastname: Pierre">
+                            </section>
                             <!-- Select the gender -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Gender</span>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="Male" name="gender" value="male" required>
+                                    <input type="radio" class="custom-control-input" name="gender" value="male" required>
                                     <label class="custom-control-label" for="Male">Male</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="Female" name="gender" value="female" required>
+                                    <input type="radio" class="custom-control-input" name="gender" value="female" required>
                                   <label class="custom-control-label" for="Female">Female</label>
                                 </div>
-                            </div>
+                            </section>
                             <!-- Input email -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Email</span>
                                 </div>
                                 <input type="email" class="form-control" name="email" placeholder="email@example.com" value= "" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Your email like emai@example.com"> 
-                            </div>
+                            </section>
                             <!-- Select the Country -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Country</span>
                                 </div>
@@ -86,12 +89,11 @@
                                     <option value=""> Select a country</option>
                                     <?php foreach ($countries as $country) {
                                         echo "<option value='" . array_search($country, $countries, true) . "'> $country </option>";
-                                    }
-                                ?>
+                                    }?>
                                 </select>
-                            </div>
+                            </section>
                             <!-- Select the subject -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Subjects</span>
                                 </div>
@@ -100,17 +102,21 @@
                                     <option value="functional">02. Functional</option>
                                     <option value="other" selected="selected">03. Other</option>
                                 </select>
-                            </div>
+                            </section>
                             <!-- Insert message -->
-                            <div class="form-group">
+                            <section class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Problem description</span>
                                 </div>
                                 <textarea type="text" id="message" name="message" maxlength="500" rows="5" class="form-control md-textarea" placeholder="Describe the problem here" required></textarea>
                                 <span class="pull-right label label-default" id="count_message"></span>
-                            </div>
+                            </section>
                             <!-- Submit button -->
-                            <button class="btn btn-primary btn-sm btn-rounded" type="submit" value="submit">Submit</button>
+                            <section class="form-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-primary btn-sm btn-rounded" name="submit" type="submit" value="submit">Submit</button>
+                                </div>
+                            </section>
                         </form>
                     </div>
                 </div>
@@ -135,7 +141,5 @@
         <script src="./libs/javascript_form/gen_validatorv4.js"></script>
         <!-- personnal javascript using libs -->
         <script src="./assets/js/counter.js"></script>
-        <!-- add countries list-->
-        <script src=".assets/php/countries.php"></script>
     </body>
 </html>
