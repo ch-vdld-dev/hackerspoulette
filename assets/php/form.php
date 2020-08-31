@@ -15,7 +15,7 @@
 			$gender = "Mr ";
 		}else {
 			$gender = "Mrs";
-
+		}
 		if (sendMail($gender, $firstName, $lastName, $email, $subject, $message)) {
 			$result='<div class="alert alert-success">Thank You! We will give you a feedback within 24 hours</div>';
 		} else {
